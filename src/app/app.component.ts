@@ -26,6 +26,11 @@ import { Component } from '@angular/core';
   <h2> {{amount | percent}} </h2>
   <h2> {{object}} </h2>
   <h2><pre> {{object | json}} </pre></h2>
+     <h2> {{num}} </h2>
+     <h2> {{num|appPow:3:'='}} </h2>
+     <h2> {{num|appPow:6}} </h2>
+     <h2> {{num|appPow}} </h2>
+     <h2> {{6|appPow:2}} </h2>
   </div>
   `
 })
@@ -44,5 +49,7 @@ export class AppComponent {
       numbers: [1, 2, 3]
     }
   }
+
+  num =2;
 
 }
