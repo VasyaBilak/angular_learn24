@@ -3,53 +3,29 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="col-xs-8 col-xs-offset02">
-  <h2> {{name}} </h2>
-  <h2> {{name | lowercase }} </h2>
-  <h2> {{name | uppercase}} </h2>
-  <h2> {{name | slice:0:3 }} </h2>
-  <h2> {{name | slice:3:6 | uppercase }} </h2>
+  <div class="col-xl-8 col-xs-offset-2">
+  <input type="text" class="form-control" [(ngModel)]="searchCar" >
   <hr>
-  <h2> {{pi}} </h2>
-  <h2> {{pi | number}} </h2>
-  <h2> {{pi | number:'1.3-4'}} </h2>
-  <h2> {{pi | number:'2.2-2'}} </h2>
-  <hr>
-  <h2> {{money | currency:'EUR':false}} </h2>
-  <hr>
-  <h2> {{date}} </h2>
-  <h2> {{date | date}} </h2>
-  <h2> {{date | date:'fullDate'}} </h2>
-  <h2> {{date | date:'shortDate'}} </h2>
-  <h2> {{date | date:'shortTime'}} </h2>
-  <h2> {{amount}} </h2>
-  <h2> {{amount | percent}} </h2>
-  <h2> {{object}} </h2>
-  <h2><pre> {{object | json}} </pre></h2>
-     <h2> {{num}} </h2>
-     <h2> {{num|appPow:3:'='}} </h2>
-     <h2> {{num|appPow:6}} </h2>
-     <h2> {{num|appPow}} </h2>
-     <h2> {{6|appPow:2}} </h2>
+    <ul class="list-group">
+      <li 
+      class="list-group-item"
+      *ngFor="let car of cars | carFilter:searchCar:'descr'; let i = index"
+      >
+      <b>{{i+1}}</b> {{car.name}} <i>{{car.descr}}</i>
+      </li>
+    </ul>
   </div>
   `
 })
 export class AppComponent {
-  name = 'WebForMyself';
-  pi = Math.PI;
-  money = 350;
-  date = new Date();
-  amount = 0.45;
-  object = {
-    foo: 'bar',
-    baz: 'qux',
-    nested:
-    {
-      xyz: 3,
-      numbers: [1, 2, 3]
-    }
-  }
-
-  num =2;
+  searchCar = "";
+   cars = [
+     {name: 'Ford', descr: 'WFM 1'},
+     {name: 'Mazda', descr: 'WFM 2'},
+     {name: 'Bentley', descr: 'WFM 3'},
+     {name: 'Audi', descr: 'WFM 4'},
+     {name: 'Mercedes', descr: 'WFM 5'},
+     {name: 'BMW', descr: 'WFM 6'}
+   ]
 
 }
