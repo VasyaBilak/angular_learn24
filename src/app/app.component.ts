@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 
@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
   providers: []
 })
 export class AppComponent  {
+
+  @ViewChild('form') form: NgForm;
   answers = [{
     type: 'yes',
     text: 'Так'
@@ -16,8 +18,8 @@ export class AppComponent  {
     text: 'Ні'
   }];  
 
-  submitForm(form: NgForm){
-    console.log('Submited!', form);
+  submitForm(){
+    console.log('Submited!', this.form);
   }
 
    }
