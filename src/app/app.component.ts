@@ -5,7 +5,11 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: []
+  styles: [`
+    input.ng-invalid.ng-touched {
+      border: 1px solid red;
+    }
+  `]
 })
 export class AppComponent  {
   answers = [{
