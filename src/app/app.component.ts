@@ -20,6 +20,9 @@ export class AppComponent  {
     text: 'Ні'
   }];  
 
+  defaultAnswer = 'no';
+  defaultCountry = 'us';
+  
   submitForm(form: NgForm){
     console.log('Submited!', form);
   }
