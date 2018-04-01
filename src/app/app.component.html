@@ -13,6 +13,7 @@
             #email="ngModel"
             >
             <p *ngIf="email.invalid && email.touched" >Введіть правельний email</p>
+            <button type="button" class="btn btn-primary" (click)="addRandEmail()" >Добавити випадковий email</button>
         </div>
         <div class="form-group" [ngClass]="{'has-error': pass.invalid && pass.touched}" >
             <label>Пароль</label>
@@ -58,4 +59,11 @@
         [disabled]="!form.valid"
         >Зберегти</button>
     </form>
+
+    <div *ngIf="isSubmited" >
+        <pre>
+            {{formData | json}}
+        </pre>
+    </div>
+
 </div>
